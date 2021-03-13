@@ -37,6 +37,7 @@ REPORT_SPECIFIC_REQUIRED_FIELDS = {
 
 ## Any not listed here are strings
 REPORTING_FIELD_TYPES = {
+    "BillToCustomerId": "string",
     'AccountId': 'integer',
     'AdId': 'integer',
     'AdGroupCriterionId': 'integer',
