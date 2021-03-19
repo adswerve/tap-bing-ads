@@ -296,6 +296,14 @@ def get_type_map(client):
     for _type, schema in type_map.items():
         type_map[_type] = fill_in_nested_types(type_map, schema)
 
+    # save type map as file
+    # with open('type_map.json', 'w') as file_output:
+    #     json.dump(type_map, file_output)
+
+    # read in file
+    with open("type_map_backup.json") as json_file:
+        type_map = json.load(json_file)
+
     return type_map
 
 def get_stream_def(stream_name, schema, stream_metadata=None, pks=None, replication_key=None):
@@ -942,7 +950,8 @@ async def main_impl():
         LOGGER.info("Discovery complete")
     elif args.catalog:
         await do_sync_all_accounts(account_ids, args.catalog)
-        LOGGER.info("Sync Completed")
+        LOGGER.info("Sync Completed TEST")
+        #TODO: remove this "TEST". This it added temporarily to make sure I'm running the right Bing Ads.
     else:
         LOGGER.info("No catalog was provided")
 

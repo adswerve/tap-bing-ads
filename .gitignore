@@ -93,5 +93,9 @@ ENV/
 ._*
 
 # Singer files
-*.config.json
-*.catalog.json
+*config.json
+dt-state.json
+*catalog*.json
+
+# credential file
+dt-client-gcp-sa.json
