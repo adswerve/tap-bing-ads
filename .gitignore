@@ -85,6 +85,9 @@ ENV/
 # Spyder project settings
 .spyderproject
 
+# JetBrains
+.idea
+
 # Rope project settings
 .ropeproject
 
@@ -99,3 +102,6 @@ dt-state.json
 
 # credential file
 dt-client-gcp-sa.json
+
+# developer
+sandbox

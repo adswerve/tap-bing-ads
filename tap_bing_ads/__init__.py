@@ -296,12 +296,12 @@ def get_type_map(client):
     for _type, schema in type_map.items():
         type_map[_type] = fill_in_nested_types(type_map, schema)
 
-    # save type map as file
-    # with open('type_map.json', 'w') as file_output:
-    #     json.dump(type_map, file_output)
+    # save type map to a file
+    with open('type_map_exported.json', 'w') as file_output:
+        json.dump(type_map, file_output)
 
     # read in file
-    with open("type_map_backup.json") as json_file:
+    with open("type_map_user_defined_input.json") as json_file:
         type_map = json.load(json_file)
 
     return type_map
