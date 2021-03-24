@@ -950,8 +950,7 @@ async def main_impl():
         LOGGER.info("Discovery complete")
     elif args.catalog:
         await do_sync_all_accounts(account_ids, args.catalog)
-        LOGGER.info("Sync Completed TEST")
-        #TODO: remove this "TEST". This it added temporarily to make sure I'm running the right Bing Ads.
+        LOGGER.info("Sync Completed")
     else:
         LOGGER.info("No catalog was provided")
 
