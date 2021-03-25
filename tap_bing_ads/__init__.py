@@ -301,11 +301,11 @@ def get_type_map(client):
     with open('type_map_exported.json', 'w') as file_output:
         json.dump(type_map, file_output)
 
-    print(os.getcwd())
+    LOGGER.info((os.getcwd()))
 
     for root, dirs, files in os.walk("."):
         for filename in files:
-            print(filename)
+            LOGGER.info(filename)
 
     # read in type map (schema) file
     try:
