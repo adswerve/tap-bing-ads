@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import glob
 import os
 import asyncio
 import json
@@ -278,6 +277,9 @@ def fill_in_nested_types(type_map, schema):
             return type_map[schema]
     return schema
 
+def get_abs_path(path):
+    return os.path.join(os.path.dirname(os.path.realpath(__file__)), path)
+
 def get_type_map(client):
     inherited_types = {}
     type_map = {}
@@ -298,17 +300,12 @@ def get_type_map(client):
         type_map[_type] = fill_in_nested_types(type_map, schema)
 
     # save type map (schema) to a file
-    with open('type_map_exported.json', 'w') as file_output:
-        json.dump(type_map, file_output)
-
-    LOGGER.info((os.getcwd()))
-
-    for filename in glob.glob("*.json"):
-        LOGGER.info(filename)
+    # with open('type_map_exported.json', 'w') as file_output:
+    #     json.dump(type_map, file_output)
 
     # read in type map (schema) file
-
-    with open("dt-type-map-user-defined-input.json") as json_file:
+    schema_path = get_abs_path("type_map_user_defined_input.json")
+    with open(schema_path) as json_file:
         type_map = json.load(json_file)
 
     return type_map
