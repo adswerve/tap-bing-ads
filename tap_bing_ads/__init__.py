@@ -306,17 +306,10 @@ def get_type_map(client):
     for filename in glob.glob("*.json"):
         LOGGER.info(filename)
 
-    # for root, dirs, files in os.walk("."):
-    #     for filename in files:
-    #         LOGGER.info(filename)
-
     # read in type map (schema) file
-    try:
-        with open("type_map_user_defined_input.json") as json_file:
-            type_map = json.load(json_file)
-    except:
-        with open("tap_bing_ads/type_map_user_defined_input.json") as json_file:
-            type_map = json.load(json_file)
+
+    with open("dt-type-map-user-defined-input.json") as json_file:
+        type_map = json.load(json_file)
 
     return type_map
 
