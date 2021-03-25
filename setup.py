@@ -27,5 +27,7 @@ setup(
       [console_scripts]
       tap-bing-ads=tap_bing_ads:main
     ''',
-    packages=find_packages()
+    packages=find_packages(),
+    package_data={'': ['*.json']},
+    include_package_data=True
 )
