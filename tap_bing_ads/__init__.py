@@ -301,8 +301,12 @@ def get_type_map(client):
         json.dump(type_map, file_output)
 
     # read in type map (schema) file
-    with open("type_map_user_defined_input.json") as json_file:
-        type_map = json.load(json_file)
+    try:
+        with open("type_map_user_defined_input.json") as json_file:
+            type_map = json.load(json_file)
+    except:
+        with open("tap_bing_ads/type_map_user_defined_input.json") as json_file:
+            type_map = json.load(json_file)
 
     return type_map
 
