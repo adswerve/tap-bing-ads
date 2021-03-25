@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import glob
 import os
 import asyncio
 import json
@@ -303,9 +303,12 @@ def get_type_map(client):
 
     LOGGER.info((os.getcwd()))
 
-    for root, dirs, files in os.walk("."):
-        for filename in files:
-            LOGGER.info(filename)
+    for filename in glob.glob("*.json"):
+        LOGGER.info(filename)
+
+    # for root, dirs, files in os.walk("."):
+    #     for filename in files:
+    #         LOGGER.info(filename)
 
     # read in type map (schema) file
     try:
