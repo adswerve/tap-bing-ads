@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import asyncio
 import json
 import csv
@@ -299,6 +300,12 @@ def get_type_map(client):
     # save type map (schema) to a file
     with open('type_map_exported.json', 'w') as file_output:
         json.dump(type_map, file_output)
+
+    print(os.getcwd())
+
+    for root, dirs, files in os.walk("."):
+        for filename in files:
+            print(filename)
 
     # read in type map (schema) file
     try:
