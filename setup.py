@@ -28,6 +28,9 @@ setup(
       tap-bing-ads=tap_bing_ads:main
     ''',
     packages=find_packages(),
-    package_data={'': ['*.json']},
+    package_data={
+        'tap_bing_ads': [
+            'schemas/*.json'
+        ]},
     include_package_data=True
 )

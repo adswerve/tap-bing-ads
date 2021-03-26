@@ -304,7 +304,7 @@ def get_type_map(client):
     #     json.dump(type_map, file_output)
 
     # read in type map (schema) file
-    schema_path = get_abs_path("type_map_user_defined_input.json")
+    schema_path = get_abs_path("schemas/type_map_user_defined_input.json")
     with open(schema_path) as json_file:
         type_map = json.load(json_file)
 
