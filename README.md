@@ -10,7 +10,7 @@ tap-bing-ads uses some custom metadata keys:
 
 Copyright &copy; 2017 Stitch
 
-## Purpose
+## Purpose of this branch
 
 - The purpose of this branch is to fix an issue when tap-bing-ads generates its own schema (not following tap-catalog) and sometimes changes its schema.
 - tap-bing-ads outputs schema which doesn't follow tap catalog / schema file.
