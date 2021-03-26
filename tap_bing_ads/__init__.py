@@ -340,6 +340,10 @@ def get_stream_def(stream_name, schema, stream_metadata=None, pks=None, replicat
 
 def get_core_schema(client, obj):
     type_map = get_type_map(client)
+
+    # with open('type_map_exported_{}.json'.format(obj), 'w') as file_output:
+    #     json.dump(type_map, file_output)
+
     return type_map[obj]
 
 def discover_core_objects():
