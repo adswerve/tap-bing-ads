@@ -29,7 +29,8 @@ This branch of tap-bing-ads will give us control over schema which tap-bing-ads 
 ### Install tap in its own virtualenv
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m venv /pyenv/tap
-RUN . /pyenv/tap/bin/activate && pip install git+git://github.com/adswerve/tap-bing-ads@fix/supply-your-own-schema
+RUN . /pyenv/tap/bin/activate && \
+    pip install git+git://github.com/adswerve/tap-bing-ads@fix/supply-your-own-schema
 ``` 
 This branch of target-bigquery will fix a potential discrepancy between data and schema which are being passed into target-bigquery.
 ``` 
