@@ -25,7 +25,6 @@ Copyright &copy; 2017 Stitch
 This branch of tap-bing-ads will give us control over schema which Tap Bing Ads outputs
 ``` 
 ### Install tap in its own virtualenv
-
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m venv /pyenv/tap
 RUN . /pyenv/tap/bin/activate && pip install git+git://github.com/adswerve/tap-bing-ads@fix/supply-your-own-schema
