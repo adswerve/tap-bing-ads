@@ -64,10 +64,10 @@ def log_service_call(service_method, account_id):
     def wrapper(*args, **kwargs):
         log_args = list(map(lambda arg: str(arg).replace('\n', '\\n'), args)) + \
                    list(map(lambda kv: '{}={}'.format(*kv), kwargs.items()))
-        LOGGER.info('Calling: {}({}) for account: {}'.format(
-            service_method.name,
-            ','.join(log_args),
-            account_id))
+        # LOGGER.info('Calling: {}({}) for account: {}'.format(
+        #     service_method.name,
+        #     ','.join(log_args),
+        #     account_id))
         with metrics.http_request_timer(service_method.name):
             try:
                 return service_method(*args, **kwargs)
@@ -582,8 +582,8 @@ def sync_ad_groups(client, account_id, campaign_ids, selected_streams):
             ad_groups = sobject_to_dict(response)['AdGroup']
 
             if 'ad_groups' in selected_streams:
-                LOGGER.info('Syncing AdGroups for Account: {}, Campaign: {}'.format(
-                    account_id, campaign_id))
+                # LOGGER.info('Syncing AdGroups for Account: {}, Campaign: {}'.format(
+                #     account_id, campaign_id))
                 selected_fields = get_selected_fields(selected_streams['ad_groups'])
                 singer.write_schema('ad_groups', get_core_schema(client, 'AdGroup'), ['Id'])
                 with metrics.record_counter('ad_groups') as counter:
@@ -627,7 +627,7 @@ def sync_core_objects(account_id, selected_streams):
     if campaign_ids and ('ad_groups' in selected_streams or 'ads' in selected_streams):
         ad_group_ids = sync_ad_groups(client, account_id, campaign_ids, selected_streams)
         if 'ads' in selected_streams:
-            LOGGER.info('Syncing Ads for Account: {}'.format(account_id))
+            # LOGGER.info('Syncing Ads for Account: {}'.format(account_id))
             sync_ads(client, selected_streams, ad_group_ids)
 
 def type_report_row(row):
